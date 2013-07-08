@@ -1,0 +1,17 @@
+| >!Run for Fortune Cookie
+| 1.10 (6 December 2001)
+|
+| (c) Stephen Fryatt, 1997
+
+| Change <Obey$Dir>.Fortunes to be the name of the fortunes file to be used.
+| If it is in the Fortunes directory, prefix the name with <Obey$Dir>. as
+| in the line below.
+
+Set Welcome$FortuneFile <Obey$Dir>.Fortunes
+
+| Change 4 to be the number of lines (ie. the number of fortunes) contained
+| in the file (or the number of fortunes to be used, if less).
+
+SetEval Welcome$Fortunes 4
+
+RMEnsure Fortune 0.00 RMLoad <Obey$Dir>.Fortune

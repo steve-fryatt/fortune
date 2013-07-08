@@ -1,0 +1,108 @@
+=============================================================================
+Fortune - Display a random fortune with the welcome banner       Version 1.10
+
+(C) Stephen Fryatt, 2001                                      6 December 2002
+=============================================================================
+
+
+License
+-------
+
+  Fortune is FREEWARE.  Copyright is held by the author, Stephen Fryatt,
+  2001.
+
+  Fortune may be copied freely, so long as it remains unaltered with all its
+  files and documentation intact.
+
+  If you wish to distribute Fortune, please contact me to get my permission.
+  This is so that I can ensure that you have the latest version available.
+  Fortune may not be sold, although Public Domain libraries may charge for
+  the cost of discs.
+
+  No guarantee is made as to the suitability or stability of Fortune for any
+  particular purpose.  No liability can be accepted by the author for any
+  problems or damage caused by the use of Fortune.
+
+
+
+Introduction
+------------
+
+  Fortune is a small module to display a random fortune when the Desktop
+  starts up, under the welcome banner.  It should work on any version of RISC
+  OS from 3.1 onwards.  The module is 26/32 bit neutral and should work on
+  RISC OS 5.
+
+
+
+Installing Fortune
+------------------
+
+  To install Fortune on a system with the new !Boot structure, copy the
+  Fortune directory from this archive into Choices:Boot.PreDesk.
+
+  You will need to provide a file of fortunes for the module to use: these
+  are in the form of a text file containing one fortune per line, with a
+  carriage return (ASCII 10, the standard for normal RISC OS text files)
+  between each one.  Files like this are freely available on the Internet.
+  Copy the file into the Fortune directory (a dummy file called Fortunes has
+  been supplied with some rather silly lines in it).
+
+  Load the Fortune.!Run file into a text editor.  There are two lines that
+  need to be edited for your specific fortunes file.  The first is
+
+    Set Welcome$FortuneFile <Obey$Dir>.Fortunes
+
+  where the "Fortunes" at the end should be changed to the name of the text
+  file you have supplied.  The next is
+
+    SetEval Welcome$Fortunes 4
+
+  where "4" should be the number of lines in the file.  See the comments in
+  the file for more details.
+
+  If you are not using the new !Boot you must ensure that the Fortunes module
+  is loaded and the two system variables are set up before the Desktop is
+  entered.  How this is achieved depends on how your boot sequence has been
+  built.
+
+
+
+Version History
+---------------
+
+  The following is a list of all the versions of Fortune.
+
+
+  1.00 (17 June 1997)
+  -------------------
+
+  * First version.
+
+
+  1.02 (16 September 2001)
+  ------------------------
+
+  * Initial public release version.
+
+
+  1.10 (6 December 2002)
+  ----------------------
+
+  Public Beta release.
+
+  * Module converted to new format and checked for 32-bit compatibility.
+
+
+
+Updates and Contacting Me
+-------------------------
+
+  If you have any comments about Fortune, or would like to report any
+  bugs that you find, you can email me at the address below.
+
+  Updates to Fortune and more programs for RISC OS computers can be
+  found on my website at http://www.stevefryatt.org.uk/software/
+
+  Stephen Fryatt
+  email: steve@stevefryatt.org.uk
