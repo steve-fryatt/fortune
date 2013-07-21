@@ -26,9 +26,6 @@
 ;
 ; 26/32 bit neutral
 
-;version$="1.10"
-;save_as$="Fortune"
-
 XOS_BGet				EQU	&02000A
 XOS_Byte				EQU	&020006
 XOS_CallEvery				EQU	&02003C
