@@ -126,7 +126,7 @@ TitleString
 	DCB	"Fortune",0
 
 HelpString
-	DCB	"Fortune Cookie",9,$BuildVersion," (",$BuildDate,") ",169," Stephen Fryatt, 1997",0	;-",$BuildDate:RIGHT:4,0
+	DCB	"Fortune Cookie",9,$BuildVersion," (",$BuildDate,") ",169," Stephen Fryatt, 1997-",$BuildDate:RIGHT:4,0
 	ALIGN
 
 ; ======================================================================================================================
