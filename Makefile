@@ -139,7 +139,7 @@ $(OBJDIR):
 # Build the object files, and identify their dependencies.
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.s
-	$(AS) $(ASFLAGS) -Predefine 'Sprites SETS "$(SRCDIR)/$(SPRITES)"' -Predefine 'Sprites22 SETS "$(SRCDIR)/$(SPRITES22)"' -PreDefine 'BuildDate SETS "\"$(BUILD_DATE)\""' -PreDefine 'BuildVersion SETS "\"$(VERSION)\""' -o $@ $<
+	$(AS) $(ASFLAGS) -PreDefine 'Include SETS "$(GCCSDK_INSTALL_ENV)/include"' -Predefine 'Sprites SETS "$(SRCDIR)/$(SPRITES)"' -Predefine 'Sprites22 SETS "$(SRCDIR)/$(SPRITES22)"' -PreDefine 'BuildDate SETS "\"$(BUILD_DATE)\""' -PreDefine 'BuildVersion SETS "\"$(VERSION)\""' -o $@ $<
 
 # Build the documentation
 
