@@ -71,7 +71,7 @@ OS_GenerateError			EQU	&00002B
 OS_Plot					EQU	&000045
 OS_ReadModeVariable			EQU	&000035
 Font_ConverttoOS			EQU	&040088
-Font_Converttopoints			EQU	&040098
+Font_Converttopoints			EQU	&040089
 Font_LoseFont				EQU	&040082
 Font_Paint				EQU	&040086
 Font_StringWidth			EQU	&040085
@@ -84,6 +84,7 @@ Wimp_SetFontColours			EQU	&0400F3
 
 WS_BlockSize		*	256
 
+			^	0
 WS_Block		#	WS_BlockSize
 
 WS_Size			*	@
@@ -122,7 +123,7 @@ ModuleFlags
 ; ======================================================================================================================
 
 TitleString
-	EQUZ	"Fortune",0
+	DCB	"Fortune",0
 
 HelpString
 	DCB	"Fortune Cookie",9,$BuildVersion," (",$BuildDate,") ",169," Stephen Fryatt, 1997",0	;-",$BuildDate:RIGHT:4,0
@@ -177,7 +178,7 @@ FinalCode
 	MOV	R0,#0
 	STR	R0,[R12]
 
-.FinalExit
+FinalExit
 	LDMFD	R13!,{PC}
 
 ; ======================================================================================================================
@@ -357,7 +358,7 @@ GetScreenModeDetails
 WidthLoop
 	MOV	R2,R9
 	MOV	R3,#&FF00
-	MOV	R4,#ASC(" ")				; Split on space
+	MOV	R4,#" "					; Split on space
 	MOV	R5,#255
 	SWI	Font_StringWidth
 
@@ -402,7 +403,7 @@ PaintLoop
 
 	MOV	R2,R9					; R2 == Maximum line length (points)
 	MOV	R3,#&FF00				; R3 == Maximum line height (points)
-	MOV	R4,#ASC(" ")				; R4 == Character to split line on
+	MOV	R4,#" "					; R4 == Character to split line on
 	MOV	R5,#255					; R5 == Maximum chars to consider
 	SWI	Font_StringWidth
 
@@ -419,7 +420,7 @@ PaintLoop
 
 	MOV	R1,R10					; R1 -> Start of string
 	MOV	R10,R7					; Save end of string in R10
-	MOV	R2,#%1010010000				; R2 == Plot type flags
+	MOV	R2,#2_1010010000				; R2 == Plot type flags
 	MOV	R4,R11					; R4 == Y Position
 	MOV	R7,R5					; R7 == String length
 	MOV	R5,#0
