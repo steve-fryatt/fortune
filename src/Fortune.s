@@ -31,7 +31,7 @@
 ; ---------------------------------------------------------------------------------------------------------------------
 ; Set up the Module Workspace
 
-WS_BlockSize		*	256
+WS_BlockSize		*	512
 
 			^	0
 WS_Block		#	WS_BlockSize
@@ -154,7 +154,7 @@ OpenCookieFile
 	ADD	R1,R12,#WS_Block			; R1 -> Workspace block
 
 ; Use OS_GSTrans to evaluate <Welcome$FortuneFile> into the workspace.  The code is exited if
-; the variable is unset or dues not exist.
+; the variable is unset or does not exist.
 
 	ADR	R0,FileSystemVariable
 	MOV	R2,#255
@@ -175,23 +175,18 @@ OpenCookieFile
 
 	MOV	R7,R0					; R7 == File handle
 
-; Use OS_GSTrans to read in <Welcome$Fortunes>, the number of fortunes in the file.
+; Count the number of lines in the file.
 
-	ADRL	R0,CookiesSystemVariable
-	MOV	R2,#255
-	SWI	XOS_GSTrans
+	MOV	R4,#0
+	MOV	R1,R7
+CountCookies
+	BL	ReadLine
 	BVS	CloseCookieFileAndExit
-
-	TEQ	R2,#0
-	BEQ	CloseCookieFileAndExit
-
-; Convert the number of fortunes from a string to a number.
-
-	MOV	R0,#10					; Base 10
-	SWI	XOS_ReadUnsigned
-	BVS	CloseCookieFileAndExit
-
-	MOV	R4,R2					; R4 == Number of cookies
+	ADD	R4,R4,#1
+	BCC	CountCookies				; R4 == Number of cookies
+	MOV	R0,#1
+	MOV	R2,#0
+	SWI	OS_Args
 
 ; Load the RTC into the workspace, pointed to by R1
 
@@ -408,8 +403,9 @@ CloseCookieFileAndExit
 
 ; Close the cookie file and exit without doing anything else.
 
-; => R1 == File handle
+; => R7 == File handle
 
+	MOV	R1,R7
 	MOV	R0,#0
 	SWI	XOS_Find
 	B	ServiceDone
@@ -418,9 +414,6 @@ CloseCookieFileAndExit
 
 FileSystemVariable
 	DCB	"<Welcome$FortuneFile>",0
-
-CookiesSystemVariable
-	DCB	"<Welcome$Fortunes>",0
 
 FontName
 	DCB	"Trinity.Bold",0
