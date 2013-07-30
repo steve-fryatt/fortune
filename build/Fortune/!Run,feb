@@ -29,9 +29,4 @@
 
 Set Welcome$FortuneFile <Obey$Dir>.Fortunes
 
-| Change 4 to be the number of lines (ie. the number of fortunes) contained
-| in the file (or the number of fortunes to be used, if less).
-
-SetEval Welcome$Fortunes 4
-
 RMEnsure Fortune 0.00 RMLoad <Obey$Dir>.Fortune

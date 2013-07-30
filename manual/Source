@@ -55,19 +55,13 @@ To install <cite>Fortune</cite> on a system with the new <file>!Boot</file> stru
 
 You will need to provide a file of fortunes for the module to use: these are in the form of a text file containing one fortune per line, with a carriage return (ASCII 10, the standard for normal RISC OS text files) between each one.  Files like this are freely available on the Internet.  Copy the file into the Fortune directory (a dummy file called Fortunes has been supplied with some rather silly lines in it).
 
-Load the <file>Fortune.!Run</file> file into a text editor.  There are two lines that need to be edited for your specific fortunes file.  The first is
+Load the <file>Fortune.!Run</file> file into a text editor.  There is one line that needs to be edited for your specific fortunes file:
 
 <codeblock>
 Set Welcome$FortuneFile &lt;Obey$Dir&gt;.Fortunes
 </codeblock>
 
-where the <code>Fortunes</code> at the end should be changed to the name of the text file you have supplied.  The next is
-
-<codeblock>
-SetEval Welcome$Fortunes 4
-</codeblock>
-
-where <code>4</code> should be the number of lines in the file.  See the comments in the file for more details.
+where the <code>Fortunes</code> at the end should be changed to the name of the text file you have supplied. See the comments in the file for more details.
 
 If you are not using the new <file>!Boot</file> you must ensure that the <cite>Fortunes</cite> module is loaded and the two system variables are set up before the Desktop is entered.  How this is achieved depends on how your boot sequence has been built.
 
@@ -110,6 +104,8 @@ Public Beta release.
 
 <list>
 <li>Converted source to ObjAsm format and checked for ARMv7 compatibility.
+<li>Count fortunes in file on loading, to avoid the need to set <code>&lt;Welcome$Fortunes&gt;</code> to the correct value (modification supplied by Martin Bazley).
+<li>Ensure that <code>OS_Find&nbsp;0</code> is always called with a valid file handle (fix supplied by Martin Bazley).
 </list>
 
 </chapter>
