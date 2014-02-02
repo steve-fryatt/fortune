@@ -12,6 +12,7 @@ Fortune - Display a random fortune with the welcome banner       Version $$versi
 
 (C) Stephen Fryatt, 1997-2013                  $$date$$
 =============================================================================
+
 </literal>
 
 
@@ -116,7 +117,6 @@ Public Beta release.
 
 
 <literal mode="Text">
-
 
 Updates and Contacting Me
 -------------------------
