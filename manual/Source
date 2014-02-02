@@ -42,7 +42,7 @@ The necessary libraries and build tools can be found at <link ref="#url http://w
 
 <chapter title="Introduction" file="Introduction">
 
-<cite>Fortune</cite> is a small module to display a random fortune when the Desktop starts up, under the welcome banner.  It should work on any version of RISC OS from 3.1 onwards.  The module is 26/32 bit neutral and should work on RISC OS 5.
+<cite>Fortune</cite> is a small module to display a random fortune when the Desktop starts up, under the welcome banner.  It should work on any version of RISC&nbsp;OS from 3.1 onwards.  The module is 26/32 bit neutral and should work on RISC OS&nbsp;5.
 
 </chapter>
 
@@ -54,7 +54,7 @@ The necessary libraries and build tools can be found at <link ref="#url http://w
 
 To install <cite>Fortune</cite> on a system with the new <file>!Boot</file> structure, copy the <file>Fortune</file> directory from this archive into <file>Choices:Boot.PreDesk</file>.
 
-You will need to provide a file of fortunes for the module to use: these are in the form of a text file containing one fortune per line, with a carriage return (ASCII 10, the standard for normal RISC OS text files) between each one.  Files like this are freely available on the Internet.  Copy the file into the Fortune directory (a dummy file called Fortunes has been supplied with some rather silly lines in it).
+You will need to provide a file of fortunes for the module to use: these are in the form of a text file containing one fortune per line, with a carriage return (ASCII&nbsp;10, the standard for normal RISC&nbsp;OS text files) between each one.  Files like this are freely available on the Internet.  Copy the file into the Fortune directory (a dummy file called Fortunes has been supplied with some rather silly lines in it).
 
 Load the <file>Fortune.!Run</file> file into a text editor.  There is one line that needs to be edited for your specific fortunes file:
 
