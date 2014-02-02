@@ -10,7 +10,7 @@
 =============================================================================
 Fortune - Display a random fortune with the welcome banner       Version $$version$$
 
-(C) Stephen Fryatt, 1997-2013                  $$date$$
+(C) Stephen Fryatt, 1997-2014                  $$date$$
 =============================================================================
 
 </literal>
@@ -101,7 +101,7 @@ Public Beta release.
 </list>
 
 
-<subhead title="Test Build">
+<subhead title="1.20 (2 February 2014)">
 
 <list>
 <li>Converted source to ObjAsm format and checked for ARMv7 compatibility.
