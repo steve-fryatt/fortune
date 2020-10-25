@@ -26,7 +26,7 @@
 ;
 ; 26/32 bit neutral
 
-	GET	$Include/SWINames
+	GET	$Include/AsmSWINames
 
 ; ---------------------------------------------------------------------------------------------------------------------
 ; Set up the Module Workspace
